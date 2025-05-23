@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["js/input.js"],
+  "sourcesContent": ["document.addEventListener(\"DOMContentLoaded\", function(event) {\r\n    console.log(\"Ready!\");\r\n});"],
+  "mappings": "MAAA,SAAS,iBAAiB,mBAAoB,SAASA,EAAO,CAC1D,QAAQ,IAAI,QAAQ,CACxB,CAAC",
+  "names": ["event"]
+}

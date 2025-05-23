@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "tail": "postcss ./src/css/input.css -o ./src/output.css --minify --watch --config postcss.config.js",
+    "tail:build": "postcss ./src/css/input.css -o ./src/output.css --minify --config postcss.config.js",
+    "js": "esbuild ./src/js/input.js --bundle --outfile=./src/output.js --minify --sourcemap --watch",
+    "js:build": "esbuild ./src/js/input.js --bundle --outfile=./src/output.js --minify --sourcemap",
+    "serve": "npx browser-sync start --config bs-config.js",
+    "start": "npm-run-all -p serve tail js",
+    "build": "npm-run-all tail:build js:build"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.14",
+    "@tailwindcss/postcss": "^4.1.6",
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^1.9.2",
+    "esbuild": "^0.25.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "postcss-nested": "^7.0.2",
+    "tailwindcss": "^4.0.14"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  }
+}

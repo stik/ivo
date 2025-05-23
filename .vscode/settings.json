@@ -1,0 +1,25 @@
+{
+    "files.encoding": "windows1250",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "tailwindCSS.includeLanguages": {
+        "html": "html",
+        "javascript": "javascript",
+        "typescript": "typescript",
+        "jsx": "javascriptreact",
+        "tsx": "typescriptreact",
+        "vue": "html",
+        "blade": "html",
+        "php": "html",
+        "plaintext": "html"
+    },
+    "tailwindCSS.experimental.classRegex": [
+        ["class\\s*=\\s*\"([^\"]*)\"", 1],
+        ["class\\s*=\\s*'([^']*)'", 1],
+        ["echo\\s+[\"']<div[^>]+class=\\\"([^\\\"]*)\\\"", 1],
+        ["\\$[a-zA-Z0-9_]+\\s*=\\s*\"([^\"]*)\"", 1],
+        ["\\$[a-zA-Z0-9_]+\\s*=\\s*'([^']*)'", 1],
+        ["//\\s*tailwind:\\s*(.*)", 1]
+    ],
+    "tailwindCSS.experimental.configFile": "./resources/src/css/input.css"
+}

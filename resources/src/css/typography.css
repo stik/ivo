@@ -1,0 +1,101 @@
+@layer components {
+    .nav-link {
+        @apply text-sm xl:text-sm 2xl:text-base leading-none font-semibold;
+    }
+    .sub-nav-link {
+        @apply text-sm xl:text-sm 2xl:text-base leading-none font-normal whitespace-nowrap;
+    }
+
+    .mobile-nav-link {
+        @apply text-base leading-none font-semibold;
+    }
+    .mobile-sub-nav-link {
+        @apply text-[13px];
+    }
+    .breadcrumbs {
+        @apply text-base leading-normal font-normal;
+    }
+
+    main {
+        /* 480px - 1024px clamp */
+        .like-h1, .text-content h1 {
+            @apply text-[40px] md:text-[112px]; /* 40 - 112 */
+        }
+        .like-h2, .text-content h2 {
+            @apply text-[40px] md:text-[64px]; /* 40 - 64 */
+        }
+        .like-h3, .text-content h3 {
+            @apply text-[32px] md:text-[48px]; /* 32 - 48 */
+        }
+        .like-h4, .text-content h4 {
+            @apply text-[24px] md:text-[40px]; /* 24 - 40 */
+        }
+        .like-h5, .text-content h5 {
+            @apply text-[18px] md:text-[32px]; /* 18 - 32 */
+        }
+        .like-h6 , .text-content h6{
+            @apply text-[18px] md:text-[24px]; /* 18 - 24 */
+        }
+        .like-h6-medium {
+            @apply text-[16px] md:text-[24px]; /* 16 - 24 */
+        }
+        .like-h6-small {
+            @apply text-[13px] md:text-[24px]; /* 13 - 24 */
+        }
+        .like-p, .text-content p {
+            @apply text-[13px] md:text-[16px]; /* 13 - 16 */
+        }
+
+        ul {
+            @apply list-none space-y-5 mt-8;
+            li {
+                background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\'><path d=\'M5 12L19 12\' stroke=\'%231A61FF\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/></svg>');
+                @apply pl-[44px] bg-no-repeat bg-left;
+            }
+        }
+
+        ol {
+            counter-reset: item;
+            @apply list-none pl-[44px] space-y-5 mt-8;
+
+            li {
+                @apply relative;
+                counter-increment: item;
+
+                &::before {
+                    content: counter(item) ".";
+                    @apply absolute left-[-50px] top-0 w-[30px] text-right text-brand-600 font-semibold;
+                }
+            }
+        }
+
+        blockquote {
+            @apply my-8 pl-8 border-l-2 border-brand-600;
+        }
+
+        table {
+            @apply mt-8 w-auto border-collapse;
+            th {
+                @apply border-b border-gray-100;
+            }
+            td, th {
+                @apply py-2 px-4;
+            }
+        }
+
+        a:not(.button) {
+            @apply underline hover:no-underline;
+        }
+
+        h1:not(.like-h1) + *, 
+        h2:not(.like-h2) + *, 
+        h3:not(.like-h3) + *, 
+        h4:not(.like-h4) + *, 
+        h5:not(.like-h5) + *, 
+        h6:not(.like-h6) + * {
+            @apply mt-2 sm:mt-8;
+        }
+    }
+}
+
+
