@@ -4,6 +4,9 @@
         <?php include("./parts/hero.php"); ?>
         <?php include("./parts/usp.php"); ?>
         <?php include("./parts/news-slider.php"); ?>
+        <div class="dark">
+            <?php include("./parts/news-slider.php"); ?>
+        </div>
         <?php include("./parts/itemlist.php"); ?>
         <?php include("./parts/breadcrumbs.php"); ?>
         <?php include("./parts/signpost.php"); ?>

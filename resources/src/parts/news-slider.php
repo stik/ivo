@@ -1,4 +1,4 @@
-<section class="bg-black py-12 lg:py-24">
+<section class="bg-black dark:bg-brand-600 py-12 lg:py-24">
     <div class="container">
         <div>
             <h2 class="text-white like-h2 leading-tight">Objevte novinky</h2>
@@ -78,63 +78,70 @@
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
 
-        var swiper2 = new Swiper(".articleSwiper", {
-            slidesPerView: "auto",
-            loop: false,
-            spaceBetween: 32,
-            observer: true,
-            observeParents: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            on: {
-                init: function () {
-                    this.emit('slideChange');
+        const all_articleSwipers = document.querySelectorAll('.articleSwiper');	
+        all_articleSwipers.forEach((articleSwiper) => {
+            
+            const paginationEl = articleSwiper.querySelector(".swiper-pagination");
+
+            new Swiper(articleSwiper, {
+                slidesPerView: "auto",
+                loop: false,
+                spaceBetween: 32,
+                observer: true,
+                observeParents: true,
+                pagination: {
+                    el: paginationEl,
+                    clickable: true,
                 },
-                resize: function () {
-                    this.emit('slideChange');
-                },
-                slideChange: function () {
+                on: {
+                    init: function () {
+                        this.emit('slideChange');
+                    },
+                    resize: function () {
+                        this.emit('slideChange');
+                    },
+                    slideChange: function () {
 
-                    const swiperEl = this.el;
-                    const wrapperRect = this.wrapperEl.getBoundingClientRect();
-                    const visibleSlides = this.slides.filter(slide => {
-                    const slideRect = slide.getBoundingClientRect();
-                        return (
-                        slideRect.left >= wrapperRect.left &&
-                        slideRect.right <= wrapperRect.right
-                        );
-                    });
+                        const swiperEl = this.el;
+                        const wrapperRect = this.wrapperEl.getBoundingClientRect();
+                        const visibleSlides = this.slides.filter(slide => {
+                        const slideRect = slide.getBoundingClientRect();
+                            return (
+                            slideRect.left >= wrapperRect.left &&
+                            slideRect.right <= wrapperRect.right
+                            );
+                        });
 
-                    const visibleCount = visibleSlides.length;
-                    const activeIndex  = this.activeIndex;
-                    const bullets      = document.querySelectorAll('.swiper-pagination span');
-                    const totalBullets = this.slides.length;
+                        const visibleCount = visibleSlides.length;
+                        const activeIndex  = this.activeIndex;
+                        const bullets      = swiperEl.querySelectorAll('.swiper-pagination span');
+                        const totalBullets = this.slides.length;
 
 
-                    bullets.forEach((bullet, i) => {
-                        if (i > activeIndex && i < activeIndex + visibleCount) {
-                            bullet.classList.add('swiper-pagination-bullet-alter-active');
+                        bullets.forEach((bullet, i) => {
+                            if (i > activeIndex && i < activeIndex + visibleCount) {
+                                bullet.classList.add('swiper-pagination-bullet-alter-active');
+                            } else {
+                                bullet.classList.remove('swiper-pagination-bullet-alter-active');
+                            }
+                        });
+
+                        /*
+                        const totalSlides = swiper.slides.length;
+                        if (activeIndex + visibleCount >= totalSlides) {
+                            swiper.allowSlideNext = false;
                         } else {
-                            bullet.classList.remove('swiper-pagination-bullet-alter-active');
+                            swiper.allowSlideNext = true;
                         }
-                    });
 
-                    /*
-                    const totalSlides = swiper.slides.length;
-                    if (activeIndex + visibleCount >= totalSlides) {
-                        swiper.allowSlideNext = false;
-                    } else {
-                        swiper.allowSlideNext = true;
-                    }
-
-                    // (volitelnì) zakázat i posun zpìt, pokud jsme na zaèátku
-                    swiper.allowSlidePrev = activeIndex > 0;
-                    */
+                        // (volitelnì) zakázat i posun zpìt, pokud jsme na zaèátku
+                        swiper.allowSlidePrev = activeIndex > 0;
+                        */
+                    },
                 },
-            },
-        });
+            });
+
+        });        
 
     });
 </script>

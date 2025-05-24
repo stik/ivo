@@ -1766,6 +1766,9 @@
       grid-column: span 6 / span 6;
     }
   }
+  .dark\:bg-brand-600:where(.dark, .dark *) {
+    background-color: var(--color-brand-600);
+  }
 }
 @font-face {
   font-family: "Gill Sans";

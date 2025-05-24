@@ -73,15 +73,11 @@
                 },
                 on: {
                     slideChange(swiper) {
-                    const bullets = swiper.pagination.bullets;
-                    const activeBullet = bullets[swiper.realIndex];
-                    if (activeBullet && typeof activeBullet.scrollIntoView === 'function') {
-                        activeBullet.scrollIntoView({
-                        behavior: 'smooth',
-                        inline: 'center',
-                        block: 'nearest',
-                        });
-                    }
+                        const bullets = swiper.pagination.bullets;
+                        const activeBullet = bullets[swiper.realIndex];
+                        if (activeBullet && typeof activeBullet.scrollIntoView === 'function') {
+                            //activeBullet.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        }
                     }
                 }
             });

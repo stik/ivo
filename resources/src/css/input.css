@@ -24,11 +24,13 @@ npm install tailwindcss-animate
 místo vıchozího "prefers-color-scheme" staèí pouít na bloku dark
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+Vlatní variantu pøidáš jednoduše:
+@custom-variant brand (&:where(.brand, .brand *));
 */
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @import "./fonts.css";
-
 
 @theme {
   /* ./node_modules/tailwindcss/theme.css */
